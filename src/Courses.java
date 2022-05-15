@@ -3,7 +3,7 @@ public class Courses {
     private int percentMakeup;
     private int extraCredit;
     private boolean isHonorRoll;
-    private int grade;
+    private double average;
 
     public Courses (String courseName, int percentMakeup)
     {
@@ -27,8 +27,8 @@ public class Courses {
         return isHonorRoll;
     }
 
-    public int getGrade() {
-        return grade;
+    public double getAverage() {
+        return average;
     }
 
 
