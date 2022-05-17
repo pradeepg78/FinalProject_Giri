@@ -2,6 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
 
+
 public class LoginInfo {
     private String username;
     private String password;

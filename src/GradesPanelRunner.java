@@ -3,9 +3,18 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class GradesPanelRunner {
+    private JFrame jf;
+    private JPanel jp;
+    private JButton jb;
+    private JLabel jl;
+
+
+
     public static void main(String[] args) {
         try {
             File f = new File("src/logininfo.data");
@@ -27,7 +36,7 @@ public class GradesPanelRunner {
             s.close();
         }
 
-        // if the file doesn't exist, we will create a blank Person object and ask them for a name and hobby
+        // if the file doesn't exist, ask user to create a new account
         catch (FileNotFoundException e) {
             LoginInfo p = new LoginInfo();
             System.out.println("Please create a new account below. ");
@@ -40,6 +49,8 @@ public class GradesPanelRunner {
             p.setPassword(pass);
             p.save();
         }
+
+
     }
 
 }

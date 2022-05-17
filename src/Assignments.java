@@ -9,15 +9,39 @@ public class Assignments {
 
     private String assignmentName;
     private String category;
-    private int categoryPercent;
     private double grade;
+    //private int categoryPercent;
 
-    public Assignments(String assignmentName, String category, int categoryPercent) {
+    public Assignments(String assignmentName, String category, int grade) {
         this.assignmentName = assignmentName;
         this.category = category;
-        this.categoryPercent = categoryPercent;
+        this.grade = grade;
+        //this.categoryPercent = categoryPercent;
     }
 
-    //public void
+    public String getAssignmentName() {
+        return assignmentName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+
+    public void setAssignmentName(String assignmentName) {
+        this.assignmentName = assignmentName;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setGrade(double grade) {
+        this.grade = grade;
+    }
+
 
 }

@@ -11,4 +11,16 @@ public class GradesPanel {
     {
         this.courses = courses; 
     }
+
+    public double getOverallAverage()
+    {
+        double sum = 0;
+        int total = 0;
+        for (int i = 0; i < courses.size(); i ++)
+        {
+            sum += courses.get(i).getAverage();
+            total++;
+        }
+        return sum / total;
+    }
 }
