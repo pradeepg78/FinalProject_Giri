@@ -12,10 +12,11 @@ public class GradesPanelRunner {
     private JPanel jp;
     private JButton jb;
     private JLabel jl;
-
-
+    private static Scanner s;
 
     public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+
         try {
             File f = new File("src/logininfo.data");
             Scanner s = new Scanner(f);
@@ -35,7 +36,6 @@ public class GradesPanelRunner {
             }
             s.close();
         }
-
         // if the file doesn't exist, ask user to create a new account
         catch (FileNotFoundException e) {
             LoginInfo p = new LoginInfo();
@@ -50,7 +50,44 @@ public class GradesPanelRunner {
             p.save();
         }
 
+        System.out.print("Please enter your username: ");
+        String us = x.nextLine();
+        System.out.print("Please enter your password: ");
+        String pa = x.nextLine();
+        verifyLogin(us, pa, "logininfo.txt");
 
+        //find out how to access login info p after a user and pass is created from the catch block
+
+    }
+
+    public static void verifyLogin(String username, String password, String filepath, LoginInfo l)
+    {
+        // filepath is "logininfo.txt"
+        boolean found = false;
+        String tempUser = "";
+        String tempPass = "";
+
+        try
+        {
+            s = new Scanner (new File(filepath));
+            s.useDelimiter("[\n]");
+
+            while (s.hasNextLine() && !found)
+            {
+                tempUser = s.next();
+                tempPass = s.next();
+
+                if(tempUser.trim().equals(l.getUsername().trim()) && tempPass.trim().equals(l.getPassword().trim()))
+                {
+                    found = true;
+                }
+            }
+            s.close();
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 
 }

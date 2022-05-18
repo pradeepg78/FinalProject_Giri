@@ -1,11 +1,14 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.util.Scanner;
 
 
 public class LoginInfo {
     private String username;
     private String password;
+    //private static Scanner s;
+
 
     public LoginInfo()
     {
