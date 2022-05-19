@@ -44,9 +44,9 @@ public class LoginInfo {
 
     public void save() {
         try {
-            File f = new File("src/logininfo.data");
+            File f = new File("src/logininfo.txt");
             f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/logininfo.data");
+            FileWriter fw = new FileWriter("src/logininfo.txt");
             fw.write(username + "\n"); //"Username: " +
             fw.write(password); //"Password: " +
             fw.close();
