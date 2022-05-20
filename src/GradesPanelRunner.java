@@ -5,15 +5,17 @@ import java.awt.*;
 
 
 public class GradesPanelRunner {
-    private JFrame jf;
+   /* private JFrame jf;
     private JPanel jp;
     private JButton jb;
-    private JLabel jl;
+    private JLabel jl; */
+    private static boolean correctLogin;
     private static Scanner s;
 
     public static void main(String[] args) {
         Scanner x = new Scanner(System.in);
         LoginInfo p = new LoginInfo();
+        GradesPanel gp = new GradesPanel();
 
         try {
             File f = new File("src/logininfo.txt");
@@ -55,13 +57,21 @@ public class GradesPanelRunner {
         String us = x.nextLine();
         System.out.print("Please enter your password: ");
         String pa = x.nextLine();
-        verifyLogin(us, pa, "src/logininfo.txt", p);
+        verifyLogin(us, pa, "src/logininfo.txt");
 
-        //find out how to access login info p after a user and pass is created from the catch block - COMPLETE
+        if (correctLogin)
+        {
+            //System.out.println("What would you");
+            //gp.startPanel();
+        }
+
+
+
+
 
     }
 
-    public static void verifyLogin(String username, String password, String filepath, LoginInfo l)
+    public static void verifyLogin(String username, String password, String filepath)
     {
         // filepath is "src/logininfo.txt" or "logininfo.data"
         boolean found = false;
@@ -80,18 +90,29 @@ public class GradesPanelRunner {
 
                 //System.out.println(tempUser + ": " + tempPass);
 
-                if(tempUser.trim().equals(l.getUsername().trim()) && tempPass.trim().equals(l.getPassword().trim()))
+                if(tempUser.trim().equals(username.trim()) && tempPass.trim().equals(password.trim())) //l.getUsername().trim(), l.getPassword().trim()
                 {
                     found = true;
+                    correctLogin = true;
                 }
             }
             s.close();
-            System.out.println(found);
+
+            if (!found)
+            {
+                System.out.println("Incorrect Login Info.");
+                correctLogin = false;
+            }
+            else
+            {
+                System.out.println("Welcome " + username + "!");
+            }
+
         }
         catch (Exception e)
         {
            // System.out.println(e);
-            System.out.println("error");
+            System.out.println("Incorrect Login");
         }
     }
 
