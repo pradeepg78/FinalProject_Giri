@@ -11,11 +11,19 @@ public class Courses {
     {
         this.courseName = courseName;
         this.assignmentsArrayList = assignmentsArrayList;
-       // this.percentMakeup = percentMakeup;
+    }
+
+    public Courses ()
+    {
     }
 
     public String getCourseName() {
         return courseName;
+    }
+
+    public void setCourseName(String courseName)
+    {
+        this.courseName = courseName;
     }
 
      public double getAverage() {
@@ -28,13 +36,5 @@ public class Courses {
         }
         return (double) sum / total;
     }
-
-
-
-
-
-
-
-
 
 }

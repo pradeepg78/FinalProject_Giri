@@ -16,6 +16,7 @@ public class GradesPanelRunner {
         Scanner x = new Scanner(System.in);
         LoginInfo p = new LoginInfo();
         GradesPanel gp = new GradesPanel();
+        Courses c = new Courses();
 
         try {
             File f = new File("src/logininfo.txt");
@@ -61,7 +62,26 @@ public class GradesPanelRunner {
 
         if (correctLogin)
         {
-            //System.out.println("What would you");
+            System.out.println("What would you like to do today?");
+            System.out.println("Add (C)ourse");
+            System.out.println("Add (S)tudent");
+            System.out.println("Add (A)ssignment");
+            System.out.println("(Q)uit");
+            String choice = x.nextLine();
+            while (!choice.equalsIgnoreCase("Q"))
+            {
+                if (choice.equalsIgnoreCase("C"))
+                {
+                    System.out.print("Please enter a course name: ");
+                    String courseName = x.nextLine();
+                    c.setCourseName(courseName);
+                }
+                else if (choice.equalsIgnoreCase("S"))
+                {
+
+                }
+                choice = x.nextLine();
+            }
             //gp.startPanel();
         }
 

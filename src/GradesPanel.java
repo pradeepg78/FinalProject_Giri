@@ -18,6 +18,7 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
     {
         this.courses = courses; 
     }
+
     public GradesPanel ()
     {
 
@@ -33,6 +34,11 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
             total++;
         }
         return sum / total;
+    }
+
+    public void addCourse(Courses c)
+    {
+        courses.add(c);
     }
 
     public static void startPanel()
