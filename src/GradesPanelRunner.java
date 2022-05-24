@@ -15,7 +15,7 @@ public class GradesPanelRunner {
     public static void main(String[] args) {
         Scanner x = new Scanner(System.in);
         LoginInfo p = new LoginInfo();
-        GradesPanel gp = new GradesPanel();
+        //GradesPanel gp = new GradesPanel();
         Courses c = new Courses();
 
         try {

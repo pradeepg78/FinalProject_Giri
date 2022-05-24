@@ -2,22 +2,20 @@ import java.util.*;
 
 public class Courses {
     private String courseName;
-    //private int percentMakeup;
-    private ArrayList <Assignments> assignmentsArrayList;
+    private ArrayList <Student> students;
 
-    //improvement: track the date of when the assignment gets added
-
-    public Courses (ArrayList<Assignments> assignmentsArrayList, String courseName)
+    public Courses (ArrayList<Student> students, String courseName)
     {
         this.courseName = courseName;
-        this.assignmentsArrayList = assignmentsArrayList;
+        this.students = students;
     }
 
     public Courses ()
     {
     }
 
-    public String getCourseName() {
+    public String getCourseName()
+    {
         return courseName;
     }
 
@@ -26,15 +24,25 @@ public class Courses {
         this.courseName = courseName;
     }
 
-     public double getAverage() {
+    /* public double getAverage() {
          int sum = 0;
          int total = 0;
-        for (int i = 0; i < assignmentsArrayList.size(); i++)
+        for (int i = 0; i < students.size(); i++)
         {
-            sum += assignmentsArrayList.get(i).getGrade();
+            sum += students.get(i).getAssignments().get(i).getGrade();
             total++;
         }
         return (double) sum / total;
+    } */
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
 }
+
+//improvement: track the date of when the assignment gets added

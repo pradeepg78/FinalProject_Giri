@@ -21,10 +21,9 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
 
     public GradesPanel ()
     {
-
     }
 
-    public double getOverallAverage()
+   /* public double getOverallAverage()
     {
         double sum = 0;
         int total = 0;
@@ -34,7 +33,7 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
             total++;
         }
         return sum / total;
-    }
+    } */
 
     public void addCourse(Courses c)
     {

@@ -1,20 +1,27 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
 
 public class Save {
     public Save() {}
 
-    public void save()
+    public void save(ArrayList<Courses> courses)
     {
         try {
-            File f = new File("src/GradesPanel.txt");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/GradesPanel.txt");
-            //fw.write();
-            fw.close();
+            FileWriter fw = new FileWriter("src/ReportCard.data");
+            for (int i = 0; i < courses.size(); i++)
+            {
+                fw.write(courses.get(i).getCourseName() + "\n");
+                for (int z = 0; z < courses.get(z).getStudents().size(); z++)
+                {
+                    fw.write(courses.get(z).getStudents().get(z).getName() + ": ");
+                    fw.write  //insert oveall course average
+                }
+            }
         }
-        catch (IOException e) {
+        catch (IOException e)
+        {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
@@ -25,3 +32,16 @@ public class Save {
 
     //Here, put a method that appends data into the existing text file
 }
+
+
+/*try {
+            File f = new File("src/GradesPanel.txt");
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter("src/GradesPanel.txt");
+            //fw.write();
+            fw.close();
+        }
+        catch (IOException e) {
+            System.out.println("Unable to create file");
+            e.printStackTrace();
+        } */
