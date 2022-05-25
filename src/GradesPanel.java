@@ -40,6 +40,10 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
         courses.add(c);
     }
 
+    public ArrayList<Courses> getCourses() {
+        return courses;
+    }
+
     public static void startPanel()
     {
         jf = new JFrame("Grades Panel");

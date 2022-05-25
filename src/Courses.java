@@ -43,6 +43,11 @@ public class Courses {
         this.students = students;
     }
 
+    public void addStudents(Student s)
+    {
+        students.add(s);
+    }
+
 }
 
 //improvement: track the date of when the assignment gets added

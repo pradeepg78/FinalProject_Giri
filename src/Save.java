@@ -16,8 +16,11 @@ public class Save {
                 for (int z = 0; z < courses.get(z).getStudents().size(); z++)
                 {
                     fw.write(courses.get(z).getStudents().get(z).getName() + ": ");
-                    fw.write  //insert oveall course average
+                    fw.write("" + courses.get(z).getStudents().get(z).getAverage());   //insert course average
                 }
+                fw.write("\n");
+                fw.write("----------------------------------------------------------------------------------");
+                fw.write("\n");
             }
         }
         catch (IOException e)

@@ -15,34 +15,26 @@ public class GradesPanelRunner {
     public static void main(String[] args) {
         Scanner x = new Scanner(System.in);
         LoginInfo p = new LoginInfo();
-        //GradesPanel gp = new GradesPanel();
+        GradesPanel gp = new GradesPanel();
         Courses c = new Courses();
 
         try {
             File f = new File("src/logininfo.txt");
             Scanner s = new Scanner(f);
             int line = 1;
-            String user = "";
-            String pass = "";
-            // reading from the file line by line
-            while (s.hasNextLine()) { //while (s.hasNext())
+            while (s.hasNextLine()) {
                 String data = s.next();
                 if (line == 1) {
-                    //user = data;
                     p.setUsername(data);
                 }
                 if (line == 2) {
-                    //pass = data;
                     p.setPassword(data);
                 }
                 line++;
             }
-            //p.save();
             s.close();
         }
-        // if the file doesn't exist, ask user to create a new account
         catch (FileNotFoundException e) {
-            //LoginInfo p = new LoginInfo();
             System.out.println("Please create a new account below. ");
             System.out.print("Enter a username: ");
             Scanner in = new Scanner(System.in);
@@ -74,21 +66,57 @@ public class GradesPanelRunner {
                 {
                     System.out.print("Please enter a course name: ");
                     String courseName = x.nextLine();
-                    c.setCourseName(courseName);
+
+                    if (gp.getCourses().equals(null))
+                    {
+                        c.setCourseName(courseName);
+                        gp.addCourse(c);
+                    }
+                    else
+                    {
+                        for(int i = 0; i < gp.getCourses().size(); i++)
+                        {
+                            if (gp.getCourses().get(i).getCourseName().equals(courseName))
+                            {
+                                System.out.println("ERROR: This course already exists");
+                            }
+                            else
+                            {
+                                c.setCourseName(courseName);
+                                gp.addCourse(c);
+                            }
+                        }
+                    }
+                    //c.setCourseName(courseName);
+                    //gp.addCourse(c);
                 }
                 else if (choice.equalsIgnoreCase("S"))
                 {
+                    System.out.print("Which course would you like to add this student to?: ");
+                    String courseToBeAddedIntoS = x.nextLine();
+                    for (int i = 0; i < gp.getCourses().size(); i++)
+                    {
+                        if (!gp.getCourses().get(i).getCourseName().equals(courseToBeAddedIntoS))
+                        {
+                            System.out.println("ERROR: This course does not exist.");
+                        }
+                    }
+                }
+                else if(choice.equalsIgnoreCase("A"))
+                {
+                    System.out.print("Which course would you like to add this assignment to?: ");
+                    String courseToBeAddedIntoA = x.nextLine();
 
+
+                }
+                else
+                {
+                    System.out.println("ERROR: Invalid choice. ");
                 }
                 choice = x.nextLine();
             }
             //gp.startPanel();
         }
-
-
-
-
-
     }
 
     public static void verifyLogin(String username, String password, String filepath)
@@ -108,8 +136,6 @@ public class GradesPanelRunner {
                 tempUser = s.next();
                 tempPass = s.next();
 
-                //System.out.println(tempUser + ": " + tempPass);
-
                 if(tempUser.trim().equals(username.trim()) && tempPass.trim().equals(password.trim())) //l.getUsername().trim(), l.getPassword().trim()
                 {
                     found = true;
@@ -125,13 +151,12 @@ public class GradesPanelRunner {
             }
             else
             {
+                System.out.println();
                 System.out.println("Welcome " + username + "!");
             }
-
         }
         catch (Exception e)
         {
-           // System.out.println(e);
             System.out.println("Incorrect Login");
         }
     }
@@ -141,3 +166,7 @@ public class GradesPanelRunner {
 //something to work on can be tracking duplicate usernames
 //add requirements for a safer password
 //allow user to create new username and password
+
+
+//might have to access courses from GradesPanel instead of the variable c
+//not sure about this yet, but will do more testing
