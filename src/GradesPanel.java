@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class GradesPanel  {  //extends JFrame implements ActionListener
-    private ArrayList <Courses> courses;
+    private ArrayList <Courses> courses = new ArrayList<Courses>();
     private static JFrame jf;
     private static JPanel jp;
     private static JButton jb;
@@ -16,7 +16,7 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
 
     public GradesPanel (ArrayList<Courses> courses)
     {
-        this.courses = courses; 
+        this.courses = courses;
     }
 
     public GradesPanel ()
@@ -40,7 +40,8 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
         courses.add(c);
     }
 
-    public ArrayList<Courses> getCourses() {
+    public ArrayList<Courses> getCourses()
+    {
         return courses;
     }
 

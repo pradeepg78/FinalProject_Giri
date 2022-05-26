@@ -12,6 +12,8 @@ public class Courses {
 
     public Courses ()
     {
+        courseName = "";
+        students = new ArrayList<Student>();
     }
 
     public String getCourseName()

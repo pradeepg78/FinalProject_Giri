@@ -67,23 +67,28 @@ public class GradesPanelRunner {
                     System.out.print("Please enter a course name: ");
                     String courseName = x.nextLine();
 
-                    if (gp.getCourses().equals(null))
+                    if (gp.getCourses().size() == 0)
                     {
                         c.setCourseName(courseName);
                         gp.addCourse(c);
+                        System.out.println("Made it 1");
                     }
                     else
                     {
-                        for(int i = 0; i < gp.getCourses().size(); i++)
+                        System.out.println("Made it 2");
+                        for (int i = 0; i < gp.getCourses().size(); i++)
                         {
                             if (gp.getCourses().get(i).getCourseName().equals(courseName))
                             {
                                 System.out.println("ERROR: This course already exists");
+                                break;  // good idea, but now the program wont catch duplicates
                             }
                             else
                             {
                                 c.setCourseName(courseName);
                                 gp.addCourse(c);
+                                System.out.println("Course Successfully Added!");
+                                break;
                             }
                         }
                     }
