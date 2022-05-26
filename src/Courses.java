@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Courses {
     private String courseName;
-    private ArrayList <Student> students;
+    private ArrayList <Student> students = new ArrayList<Student>();;
 
     public Courses (ArrayList<Student> students, String courseName)
     {
@@ -13,7 +13,6 @@ public class Courses {
     public Courses ()
     {
         courseName = "";
-        students = new ArrayList<Student>();
     }
 
     public String getCourseName()

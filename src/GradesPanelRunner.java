@@ -71,41 +71,57 @@ public class GradesPanelRunner {
                     {
                         c.setCourseName(courseName);
                         gp.addCourse(c);
-                        System.out.println("Made it 1");
+                        System.out.println("Made it 1"); //DELETE THIS
                     }
                     else
                     {
-                        System.out.println("Made it 2");
+                        System.out.println("Made it 2"); // DELETE THIS
                         for (int i = 0; i < gp.getCourses().size(); i++)
                         {
                             if (gp.getCourses().get(i).getCourseName().equals(courseName))
                             {
                                 System.out.println("ERROR: This course already exists");
-                                break;  // good idea, but now the program wont catch duplicates
+                                break;
                             }
                             else
                             {
-                                c.setCourseName(courseName);
-                                gp.addCourse(c);
+                                Courses toAdd = new Courses();
+                                toAdd.setCourseName(courseName);
+                                gp.addCourse(toAdd);
                                 System.out.println("Course Successfully Added!");
                                 break;
-                            }
+                            } // ADD A BOOLEAN TO CHECK THIS
                         }
                     }
                     //c.setCourseName(courseName);
                     //gp.addCourse(c);
+                    System.out.println();
+                    for (int i = 0; i < gp.getCourses().size(); i++)
+                    {
+                        System.out.println(gp.getCourses().get(i).getCourseName());
+                    }
+
                 }
                 else if (choice.equalsIgnoreCase("S"))
                 {
                     System.out.print("Which course would you like to add this student to?: ");
                     String courseToBeAddedIntoS = x.nextLine();
+                    boolean exist = true;
                     for (int i = 0; i < gp.getCourses().size(); i++)
                     {
-                        if (!gp.getCourses().get(i).getCourseName().equals(courseToBeAddedIntoS))
+
+                        if (!gp.getCourses().get(i).getCourseName().equals(courseToBeAddedIntoS)) //change this logic
                         {
-                            System.out.println("ERROR: This course does not exist.");
+                            exist = false;
+                            if (exist == false)
+                            {
+                                System.out.println("ERROR: This course does not exist");
+                                break;
+                            }
                         }
+                        System.out.println("Course Successfully Added");
                     }
+
                 }
                 else if(choice.equalsIgnoreCase("A"))
                 {
