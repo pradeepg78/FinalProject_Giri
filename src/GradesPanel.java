@@ -55,6 +55,17 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
         return n;
     }
 
+    public void addStudent(Student s, String courseName)
+    {
+        for (int i = 0; i < courses.size(); i++)
+        {
+            if(courses.get(i).getCourseName().contains(courseName))
+            {
+                courses.get(i).addStudents(s);
+            }
+        }
+    }
+
     public static void startPanel()
     {
         jf = new JFrame("Grades Panel");

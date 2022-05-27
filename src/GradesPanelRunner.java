@@ -91,8 +91,6 @@ public class GradesPanelRunner {
 
 
                     }
-                    //c.setCourseName(courseName);
-                    //gp.addCourse(c);
                     System.out.println();
                     System.out.print("Course List: ");
                     for (int i = 0; i < gp.getCourses().size(); i++)
@@ -103,9 +101,26 @@ public class GradesPanelRunner {
                 }
                 else if (choice.equalsIgnoreCase("S"))
                 {
+                    System.out.print("Please enter the student's name: ");
+                    String name = x.nextLine();
                     System.out.print("Which course would you like to add this student to?: ");
-                    String courseToBeAddedIntoS = x.nextLine();
-                    boolean exist = true;
+                    String courseName = x.nextLine();
+
+                    if (!gp.getCoursesNames().contains(courseName))
+                    {
+                        System.out.println("ERROR: This course des not exist");
+                    }
+                    else
+                    {
+                        Student s = new Student(name);
+                        gp.addStudent(s, courseName);
+
+                    }
+
+
+
+
+                    /*
                     for (int i = 0; i < gp.getCourses().size(); i++)
                     {
 
@@ -119,7 +134,7 @@ public class GradesPanelRunner {
                             }
                         }
                         System.out.println("Course Successfully Added");
-                    }
+                    } */
 
                 }
                 else if(choice.equalsIgnoreCase("A"))
