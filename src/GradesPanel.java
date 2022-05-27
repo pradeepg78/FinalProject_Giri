@@ -45,6 +45,16 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
         return courses;
     }
 
+    public ArrayList<String> getCoursesNames()
+    {
+        ArrayList<String> n = new ArrayList<String>();
+        for (int i = 0; i < courses.size(); i++)
+        {
+            n.add(courses.get(i).getCourseName());
+        }
+        return n;
+    }
+
     public static void startPanel()
     {
         jf = new JFrame("Grades Panel");

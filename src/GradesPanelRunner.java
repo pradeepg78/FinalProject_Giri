@@ -76,26 +76,25 @@ public class GradesPanelRunner {
                     else
                     {
                         System.out.println("Made it 2"); // DELETE THIS
-                        for (int i = 0; i < gp.getCourses().size(); i++)
+
+                        if (gp.getCoursesNames().contains(courseName))
                         {
-                            if (gp.getCourses().get(i).getCourseName().equals(courseName))
-                            {
-                                System.out.println("ERROR: This course already exists");
-                                break;
-                            }
-                            else
-                            {
-                                Courses toAdd = new Courses();
-                                toAdd.setCourseName(courseName);
-                                gp.addCourse(toAdd);
-                                System.out.println("Course Successfully Added!");
-                                break;
-                            } // ADD A BOOLEAN TO CHECK THIS
+                            System.out.println("ERROR: This course already exists");
                         }
+                        else
+                        {
+                            Courses toAdd = new Courses();
+                            toAdd.setCourseName(courseName);
+                            gp.addCourse(toAdd);
+                            System.out.println("Course Successfully Added");
+                        }
+
+
                     }
                     //c.setCourseName(courseName);
                     //gp.addCourse(c);
                     System.out.println();
+                    System.out.print("Course List: ");
                     for (int i = 0; i < gp.getCourses().size(); i++)
                     {
                         System.out.println(gp.getCourses().get(i).getCourseName());
