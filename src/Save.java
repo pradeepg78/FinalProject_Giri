@@ -6,7 +6,7 @@ import java.util.*;
 public class Save {
     public Save() {}
 
-    public void save(ArrayList<Courses> courses)
+    public void save1(ArrayList<Courses> courses)
     {
         try {
             FileWriter fw = new FileWriter("src/ReportCard.data");
@@ -30,11 +30,40 @@ public class Save {
         }
     }
 
-    //might have to put this save method in the runner class and use an if-else
-    //file gets creates when a new course, student, OR assignment gets added for the first time
+    public void save(GradesPanel gp)
+    {
+        try
+        {
+            File f = new File("src/grades.data");
+            f.createNewFile();
+            FileWriter fw = new FileWriter("src/grades.data");
 
-    //Here, put a method that appends data into the existing text file
+            for (int i = 0; i < gp.getCourses().size(); i++)
+            {
+                fw.write(gp.getCourses().get(i).getCourseName() + "/n");
+                if (gp.getCourses().get(i).getStudents() != null)
+                {
+                    fw.write(gp.getCourses().get(i).getStudents().get(i).getName());
+                }
+
+            }
+        }
+        catch (IOException e)
+        {
+        System.out.println("Unable to create file");
+        e.printStackTrace();
+        }
+    }
+
+
+
+
 }
+
+//might have to put this save method in the runner class and use an if-else
+//file gets creates when a new course, student, OR assignment gets added for the first time
+
+//Here, put a method that appends data into the existing text file
 
 
 /*try {

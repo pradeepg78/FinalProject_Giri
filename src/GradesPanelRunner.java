@@ -17,6 +17,7 @@ public class GradesPanelRunner {
         LoginInfo p = new LoginInfo();
         GradesPanel gp = new GradesPanel();
         Courses c = new Courses();
+        Save sa = new Save();
 
         try {
             File f = new File("src/logininfo.txt");
@@ -95,7 +96,7 @@ public class GradesPanelRunner {
                     System.out.print("Course List: ");
                     for (int i = 0; i < gp.getCourses().size(); i++)
                     {
-                        System.out.println(gp.getCourses().get(i).getCourseName());
+                        System.out.print(gp.getCourses().get(i).getCourseName() + " -- ");
                     }
 
                 }
@@ -106,19 +107,36 @@ public class GradesPanelRunner {
                     System.out.print("Which course would you like to add this student to?: ");
                     String courseName = x.nextLine();
 
+                    //Student s = null;
+
                     if (!gp.getCoursesNames().contains(courseName))
                     {
-                        System.out.println("ERROR: This course des not exist");
+                        System.out.println("ERROR: This course does not exist");
                     }
                     else
                     {
-                        Student s = new Student(name);
+                        Student s = new Student(name);  //s = new Student(name);
                         gp.addStudent(s, courseName);
+                        System.out.println("Student Successfully Added.");
 
                     }
+/*
+                    System.out.println();
+                    System.out.println("Course List");
+                    for (int i = 0; i < gp.getStudentsSize(s, courseName); i++)
+                    {
+                        System.out.println(gp.getCourses().get(i).getCourseName());
+                        if (gp.getStudentsSize(s, courseName) <= gp.getCourses().size())
+                        {
+                            System.out.print(gp.getCourses().get(i).getStudents().get(i).getName());
+                        }
 
+                        if (gp.getCourses().get(i).getStudents().get(i).getName() != null)
+                        {
+                            System.out.print(gp.getCourses().get(i).getStudents().get(i).getName());
+                        }
 
-
+                    } */
 
                     /*
                     for (int i = 0; i < gp.getCourses().size(); i++)
@@ -148,15 +166,14 @@ public class GradesPanelRunner {
                 {
                     System.out.println("ERROR: Invalid choice. ");
                 }
+                //sa.save(gp);
                 choice = x.nextLine();
             }
-            //gp.startPanel();
         }
     }
 
     public static void verifyLogin(String username, String password, String filepath)
     {
-        // filepath is "src/logininfo.txt" or "logininfo.data"
         boolean found = false;
         String tempUser = "";
         String tempPass = "";
@@ -171,7 +188,7 @@ public class GradesPanelRunner {
                 tempUser = s.next();
                 tempPass = s.next();
 
-                if(tempUser.trim().equals(username.trim()) && tempPass.trim().equals(password.trim())) //l.getUsername().trim(), l.getPassword().trim()
+                if(tempUser.trim().equals(username.trim()) && tempPass.trim().equals(password.trim()))
                 {
                     found = true;
                     correctLogin = true;

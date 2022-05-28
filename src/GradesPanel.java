@@ -59,12 +59,34 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
     {
         for (int i = 0; i < courses.size(); i++)
         {
-            if(courses.get(i).getCourseName().contains(courseName))
+            if(courses.get(i).getCourseName().equals(courseName))
             {
                 courses.get(i).addStudents(s);
             }
         }
     }
+
+   /* public ArrayList<Student> getStudentss()
+    {
+        ArrayList<String> n = new ArrayList<String>();
+        for (int i = 0; i < courses.size(); i++)
+        {
+            n.add(courses.get(i).getCourseName());
+        }
+        return n;
+    } */
+
+    /* public int getStudentsSize(Student s, String courseName)
+    {
+        for (int i = 0; i < courses.size(); i++)
+        {
+            if (courses.get(i).getCourseName().contains(courseName))
+            {
+                return courses.get(i).getStudents().size();
+            }
+        }
+        return 0;
+    } */
 
     public static void startPanel()
     {
