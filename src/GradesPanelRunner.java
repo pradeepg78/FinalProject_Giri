@@ -169,6 +169,7 @@ public class GradesPanelRunner {
                 //sa.save(gp);
                 choice = x.nextLine();
             }
+            sa.save(gp);
         }
     }
 
