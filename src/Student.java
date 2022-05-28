@@ -29,6 +29,11 @@ public class Student {
         this.assignments = assignments;
     }
 
+    public void addAssignments(Assignments a)
+    {
+        assignments.add(a);
+    }
+
     public double getAverage() {
         int sum = 0;
         int total = 0;

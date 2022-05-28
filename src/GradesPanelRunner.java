@@ -157,10 +157,23 @@ public class GradesPanelRunner {
                 }
                 else if(choice.equalsIgnoreCase("A"))
                 {
-                    System.out.print("Which course would you like to add this assignment to?: ");
-                    String courseToBeAddedIntoA = x.nextLine();
+                    System.out.print("Which student would you like to add this assignment to?: ");
+                    String studentName = x.nextLine();
+                    System.out.println("What is the assignment name?: ");
+                    String aName = x.nextLine();
+                    System.out.println("What was their grade?: ");
+                    double grade = x.nextDouble();
 
-
+                    if (!gp.getStudentsNames().contains(studentName))
+                    {
+                        System.out.println("ERROR: This student does not exist");
+                    }
+                    else
+                    {
+                        Assignments a = new Assignments(aName, grade);
+                        gp.addAssignment(a, studentName);
+                        System.out.println("Assignment Successfully Added");
+                    }
                 }
                 else
                 {

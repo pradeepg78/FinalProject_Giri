@@ -42,10 +42,15 @@ public class Save {
             {
                 fw.write(gp.getCourses().get(i).getCourseName() + "\n");
 
-                for (int z = 0 ; z < gp.getCourses().get(i).getStudents().size(); i++)
+                if (gp.getCourses().get(i).getStudents().size() != 0)
                 {
-                    fw.write(gp.getCourses().get(i).getStudents().get(z).getName() + ": \n");
+                    for (int z = 0 ; z < gp.getCourses().get(i).getStudents().size(); i++)
+                    {
+                        fw.write(gp.getCourses().get(i).getStudents().get(z).getName() + ": \n");
+                    }
                 }
+
+
                 /*if (gp.getCourses().get(i).getStudents().size() <= gp.getCourses().size())
                 {
                     fw.write(gp.getCourses().get(i).getStudents().get(i).getName() + ": /n");

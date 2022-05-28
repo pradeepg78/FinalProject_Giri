@@ -6,7 +6,7 @@ public class Assignments {
     private String assignmentName;
     private double grade;
 
-    public Assignments(String assignmentName, int grade) {
+    public Assignments(String assignmentName, double grade) {
         this.assignmentName = assignmentName;
         this.grade = grade;
     }

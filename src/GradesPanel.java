@@ -12,8 +12,6 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
     private static JButton jb;
     private static JLabel jl;
 
-    //**************************NEED TO CREATE STUDENTS**********************************************
-
     public GradesPanel (ArrayList<Courses> courses)
     {
         this.courses = courses;
@@ -66,15 +64,32 @@ public class GradesPanel  {  //extends JFrame implements ActionListener
         }
     }
 
-   /* public ArrayList<Student> getStudentss()
+    public ArrayList<String> getStudentsNames()
     {
         ArrayList<String> n = new ArrayList<String>();
-        for (int i = 0; i < courses.size(); i++)
+        for (int i = 0; i < courses.get(i).getStudents().size(); i++)
         {
-            n.add(courses.get(i).getCourseName());
+            for (int z = 0; z < courses.get(z).getStudents().size(); z++)
+            {
+                n.add(courses.get(i).getStudents().get(z).getName());
+            }
         }
+        System.out.println(n);
         return n;
-    } */
+    }
+
+    public void addAssignment(Assignments a, String studentName)
+    {
+        for (int i = 0; i < courses.get(i).getStudents().size(); i++)
+        {
+            if (courses.get(i).getStudents().get(i).getName().equals(studentName))
+            {
+                courses.get(i).getStudents().get(i).addAssignments(a);
+            }
+        }
+    }
+
+    //might add assignment and grade to students with the same name
 
     /* public int getStudentsSize(Student s, String courseName)
     {
